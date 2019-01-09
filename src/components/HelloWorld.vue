@@ -1,91 +1,32 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+  <div>
+    {{ msg }}
+    <form>
+      <button>Add Todo</button>
+      <button>Delete Finished Todo</button>
+      <p>input: <input type="text"></p>
+      <p>task :</p>
+    </form>
+    <div class="todo-list">
+      <label class="todo-list__item">
+        <input type="checkbox"><button>Edit</button>vue-router
+      </label>
+      <label class="todo-list__item">
+        <input type="checkbox"><button>Edit</button>vuex
+      </label>
+      <label class="todo-list__item">
+        <input type="checkbox"><button>Edit</button>vue-loader
+      </label>
+      <label class="todo-list__item--checked">
+        <input type="checkbox" checked><button>Edit</button>awesome-vue
+      </label>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'hello',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
@@ -94,20 +35,30 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+<style lang="scss" scoped>
+@mixin flex-vender() {
+  display: flex;
+  display: --webit-flex;
+  display: --moz-flex;
+  display: --ms-flex;
+  display: --o-flex;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+
+.todo-list {
+  @include flex-vender;
+
+  flex-direction: column;
+  align-items: center;
+
+  &__item {
+    width: 270px;
+    text-align: left;
+
+    &--checked {
+      width: 270px;
+      text-align: left;
+      color: #85a6c6;
+    }
+  }
 }
 </style>
