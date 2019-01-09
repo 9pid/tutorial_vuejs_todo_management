@@ -1,6 +1,7 @@
 # tutorial_vuejs_todo_management
 
-> A Vue.js project
+thanks!
+https://qiita.com/sin_tanaka/items/6d5d9089eb76dda4ce88
 
 ## Build Setup
 
