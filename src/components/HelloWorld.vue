@@ -8,17 +8,9 @@
       <p>task :</p>
     </form>
     <div class="todo-list">
-      <label class="todo-list__item">
-        <input type="checkbox"><button>Edit</button>vue-router
-      </label>
-      <label class="todo-list__item">
-        <input type="checkbox"><button>Edit</button>vuex
-      </label>
-      <label class="todo-list__item">
-        <input type="checkbox"><button>Edit</button>vue-loader
-      </label>
-      <label class="todo-list__item--checked">
-        <input type="checkbox" checked><button>Edit</button>awesome-vue
+      <label class="todo-list__item"
+             v-for="todo in todos">
+        <input type="checkbox"><button>Edit</button>{{ todo.text }}
       </label>
     </div>
   </div>
@@ -29,7 +21,20 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      todos: [{
+        text: 'vue-router',
+        done: false
+      }, {
+        text: 'vuex',
+        done: false
+      }, {
+        text: 'vue-loader',
+        done: false
+      }, {
+        text: 'awesome-vue',
+        done: true
+      }]
     }
   }
 }
