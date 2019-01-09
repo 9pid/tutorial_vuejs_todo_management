@@ -10,7 +10,10 @@
     <div class="todo-list">
       <label class="todo-list__item"
              v-for="todo in todos">
-        <input type="checkbox" v-model="todo.done"><button>Edit</button>{{ todo.text }}
+        <input type="checkbox" v-model="todo.done">
+        <button @click="toggleTodoEdit(todo)">{{ editButtonText(todo) }}</button>
+        <input v-if="todo.editing" type="text" v-model="todo.text">
+        <span v-else>{{ todo.text }}</span>
       </label>
     </div>
   </div>
@@ -25,17 +28,29 @@ export default {
       newTodo: '',
       todos: [{
         text: 'vue-router',
+        editing: false,
         done: false
       }, {
         text: 'vuex',
+        editing: false,
         done: false
       }, {
         text: 'vue-loader',
+        editing: false,
         done: false
       }, {
         text: 'awesome-vue',
+        editing: false,
         done: true
       }]
+    }
+  },
+  computed: {
+    editButtonText: function() {
+      return (todo) => {
+        if (todo.editing) return 'Enter';
+        return 'Edit';
+      };
     }
   },
   methods: {
@@ -54,6 +69,9 @@ export default {
         return !todo.done;
       });
       this.todos = newTodos;
+    },
+    toggleTodoEdit: function(todo) {
+      todo.editing = !todo.editing;
     }
   }
 }
