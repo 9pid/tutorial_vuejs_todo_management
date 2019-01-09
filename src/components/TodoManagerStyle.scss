@@ -1,0 +1,23 @@
+@mixin flex-vender() {
+  display: flex;
+  display: --webit-flex;
+  display: --moz-flex;
+  display: --ms-flex;
+  display: --o-flex;
+}
+
+.todo-list {
+  @include flex-vender;
+
+  flex-direction: column;
+  align-items: center;
+
+  &__item {
+    width: 270px;
+    text-align: left;
+
+    &--checked {
+      color: #85a6c6;
+    }
+  }
+}
