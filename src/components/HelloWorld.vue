@@ -2,8 +2,8 @@
   <div>
     {{ msg }}
     <form>
-      <button v-on:click="addTodo()">Add Todo</button>
-      <button v-on:click="deleteCheckedTodos()">Delete Finished Todo</button>
+      <button @click="addTodo()">Add Todo</button>
+      <button @click="deleteCheckedTodos()">Delete Finished Todo</button>
       <p>input: <input type="text" v-model="newTodo"></p>
       <p>task: {{ newTodo }}</p>
     </form>
