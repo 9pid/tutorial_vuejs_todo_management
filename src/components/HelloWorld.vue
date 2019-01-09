@@ -9,6 +9,7 @@
     </form>
     <div class="todo-list">
       <label class="todo-list__item"
+             :class="{'todo-list__item--checked': todo.done}"
              v-for="todo in todos">
         <input type="checkbox" v-model="todo.done">
         <button @click="toggleTodoEdit(todo)">{{ editButtonText(todo) }}</button>
@@ -97,8 +98,6 @@ export default {
     text-align: left;
 
     &--checked {
-      width: 270px;
-      text-align: left;
       color: #85a6c6;
     }
   }
